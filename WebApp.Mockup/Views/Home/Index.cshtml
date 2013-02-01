@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured" id="topid">
+    
+     <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          
+          <div class="row-fluid">
+            
+          <div class="hero-unit">
+            <h1>Parent Record</h1>
+            <img id="imageProcessing" src="@Url.Content("~/Images/animated_progress.gif")" height="20" width="20" data-bind="style: {display : showImageProcessing}" />
+              
+
+              <table>
+
+                  <tr>
+                      <td>
+                         
+                          <table style="border-color:black" border="1">
+                              <thead>
+                                  <tr>
+                                      <td><b>Name</b></td><td><b>Is Live?</b></td>
+                                  </tr>
+                              </thead>
+                              <tbody data-bind="template: { foreach: parentList }">
+                                  <tr href="#" data-bind="event: { click: $parent.onClick, mouseover: $parent.onMouseOver, mouseout: $parent.onMouseOut }">
+                                  <td><span data-bind="text: Name"> </span></td><td><input type="checkbox" data-bind="checked: Live" /> </span></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+
+                      </td>
+                      <td style="vertical-align:top">
+                          <table border="1" style="border-color:black" data-bind="with: parentItem">
+                              <tr>
+                                  <td>Date Created:</td><td><span data-bind="text: DateCreated"> </span></td>
+                              </tr>
+                              <tr>
+                                  <td>Description:</td><td><span data-bind="text: Description"> </span></td>
+                              </tr>
+                          </table>
+                      </td>
+                  </tr>
+
+              </table>
+
+
+          </div>
+
+          <div class="hero-unit">
+            <h1>Child Details</h1> (Click on Parent Record to see Child Details)
+           <ul data-bind="template: { foreach: childrenList }">
+
+                 <li>
+                        <span data-bind="text: Name"> </span>
+                        <span data-bind="text: Description"> </span>
+                    
+                    <hr />
+                 </li>
+                  
+         
+            </ul>
+          </div>
+
+          </div><!--/row-->
+        </div>
+         
+      <hr />
+    </div>
+  </div>
+</section>
+}
